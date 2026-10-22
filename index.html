@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jegwang Ryu</title>
+<meta name="description" content="Jegwang Ryu: efficient deep learning, model compression and learned data compression.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap">
+<style>
+  :root {
+    --bg: #FFFFFF;
+    --ink: #1C1F24;
+    --muted: #5A6270;
+    --line: #E3E6EA;
+    --chip-line: #DDE1E6;
+    --surface: #F2F4F7;
+    --accent: #1B5FAA;
+    --accent-hover: #134A86;
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14171B;
+      --ink: #E7EAEE;
+      --muted: #A3ABB6;
+      --line: #2B3038;
+      --chip-line: #353B44;
+      --surface: #1E2228;
+      --accent: #7FB0F0;
+      --accent-hover: #A5C8F5;
+      color-scheme: dark;
+    }
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Instrument Sans", "Noto Sans KR", system-ui, -apple-system, "Segoe UI", sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+  a { color: var(--accent); }
+  a:hover { color: var(--accent-hover); }
+  a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
+  img { max-width: 100%; }
+
+  .wrap { max-width: 1000px; margin: 0 auto; padding: 0 24px; }
+
+  /* Header */
+  .site-header { border-bottom: 1px solid var(--line); }
+  .site-header .wrap {
+    padding-top: 28px; padding-bottom: 28px;
+    display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px 40px;
+  }
+  .site-header h1 { margin: 0; font-size: 28px; font-weight: 700; letter-spacing: -0.01em; line-height: 1.2; }
+  .site-header .role { margin: 2px 0 0; color: var(--muted); }
+
+  main.wrap { display: flex; flex-direction: column; gap: 88px; }
+  section { scroll-margin-top: 24px; }
+  h2.section-title { margin: 0 0 28px; font-size: 28px; font-weight: 600; letter-spacing: -0.01em; line-height: 1.25; }
+
+  /* Intro */
+  .intro { padding-top: 64px; display: flex; flex-wrap: wrap; gap: 40px 56px; align-items: flex-start; }
+  .intro-text { flex: 999 1 440px; min-width: 0; display: flex; flex-direction: column; gap: 22px; }
+  .intro-text h2 { margin: 0; font-size: 44px; font-weight: 600; letter-spacing: -0.02em; line-height: 1.1; }
+  .intro-text p.lead { margin: 0; font-size: 18px; line-height: 1.65; max-width: 62ch; }
+  .photo { flex: 0 1 240px; width: 240px; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 16px; background: var(--surface); }
+
+  .links { display: flex; flex-wrap: wrap; gap: 10px; }
+  .chip {
+    display: inline-flex; align-items: center; gap: 8px;
+    min-height: 44px; padding: 0 16px;
+    border: 1px solid var(--chip-line); border-radius: 999px;
+    font-size: 15px; font-weight: 500; text-decoration: none;
+  }
+  .chip:hover { background: var(--surface); }
+  .chip.small { min-height: 36px; padding: 0 14px; font-size: 14px; }
+
+  .interests { padding: 20px 22px; background: var(--surface); border-radius: 12px; max-width: 66ch; display: flex; flex-direction: column; gap: 10px; }
+  .interests h3 { margin: 0; font-size: 15px; font-weight: 600; }
+  .interests p { margin: 0; font-size: 15px; }
+  .interests strong { font-weight: 600; }
+
+  /* Publications */
+  .papers { display: flex; flex-direction: column; gap: 36px; }
+  .paper { display: flex; flex-wrap: wrap; gap: 20px 28px; align-items: flex-start; }
+  .paper .thumb { flex: 0 0 220px; width: 220px; aspect-ratio: 16 / 10; object-fit: cover; border-radius: 10px; background: var(--surface); }
+  .paper-body { flex: 1 1 340px; min-width: 0; display: flex; flex-direction: column; gap: 6px; }
+  .paper-body h3 { margin: 0; font-size: 19px; font-weight: 600; line-height: 1.35; }
+  .paper-body h3 a { color: var(--ink); text-decoration: none; }
+  .paper-body h3 a:hover { text-decoration: underline; }
+  .authors { margin: 0; font-size: 15px; color: var(--muted); line-height: 1.55; }
+  .authors .me { color: var(--ink); font-weight: 600; }
+  .venue { margin: 0; font-size: 15px; }
+  .venue strong { font-weight: 700; }
+  .paper-links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+
+  /* Education */
+  .entry {
+    display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 24px;
+    padding: 20px 0; border-top: 1px solid var(--line);
+  }
+  .entry-main { flex: 1 1 420px; min-width: 0; }
+  .entry h3 { margin: 0; font-size: 18px; font-weight: 600; line-height: 1.4; }
+  .entry p { margin: 2px 0 0; }
+  .entry .detail { font-size: 15px; color: var(--muted); }
+  .entry .date { margin: 0; font-size: 15px; color: var(--muted); white-space: nowrap; }
+
+  /* Footer */
+  .site-footer { margin-top: 96px; border-top: 1px solid var(--line); }
+  .site-footer .wrap {
+    padding-top: 28px; padding-bottom: 40px;
+    display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px;
+    font-size: 14px; color: var(--muted);
+  }
+
+  @media (max-width: 600px) {
+    .intro { padding-top: 40px; }
+    .intro-text h2 { font-size: 36px; }
+    .paper .thumb { flex-basis: 100%; width: 100%; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <div>
+      <h1>Jegwang Ryu</h1>
+      <p class="role">M.S. Student, Electrical Engineering, POSTECH</p>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="intro">
+    <div class="intro-text">
+      <h2>Hi, I’m Jegwang!</h2>
+      <!-- TODO: 연구실 홈페이지 주소를 href에 넣으세요 -->
+      <p class="lead">I work on making deep learning models cheaper to train, run and store. I’m an M.S. student in Electrical Engineering at POSTECH, in the <a href="#">Efficient Learning Lab (EffL)</a>, advised by Prof. Jaeho Lee, where I also received my B.S.</p>
+
+      <div class="links">
+        <a class="chip" href="mailto:jegwang.ryu@postech.ac.kr">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>Email</a>
+        <!-- TODO: LinkedIn 프로필 주소 -->
+        <a class="chip" href="#">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>LinkedIn</a>
+        <!-- TODO: GitHub 프로필 주소 (예: https://github.com/아이디) -->
+        <a class="chip" href="#">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 7l-5 5 5 5"/><path d="M16 7l5 5-5 5"/></svg>GitHub</a>
+        <!-- CV.pdf 파일을 저장소에 같이 올리면 이 링크가 동작합니다 -->
+        <a class="chip" href="CV.pdf">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6"/><path d="M8 13h8"/><path d="M8 17h5"/></svg>CV</a>
+      </div>
+
+      <div class="interests">
+        <h3>Research interests</h3>
+        <p><strong>Efficient inference and training:</strong> model compression, quantization, knowledge distillation</p>
+        <p><strong>Data compression:</strong> neural codecs, learned compression</p>
+      </div>
+    </div>
+    <!-- photo.jpg를 저장소에 올리면 사진이 나타납니다. 파일이 없으면 자동으로 숨겨집니다. -->
+    <img class="photo" src="photo.jpg" alt="Jegwang Ryu" onerror="this.remove()">
+  </section>
+
+  <section id="papers">
+    <h2 class="section-title">Publications</h2>
+    <div class="papers">
+
+      <!-- 논문 하나 = <article> 하나. 새 논문은 이 블록을 복사해서 맨 위에 붙여 넣으세요.
+           썸네일은 images/ 폴더에 넣으면 나타나고, 없으면 자동으로 숨겨집니다. -->
+      <article class="paper">
+        <img class="thumb" src="images/nwc.png" alt="" onerror="this.remove()">
+        <div class="paper-body">
+          <h3><a href="https://arxiv.org/abs/2510.11234">Neural Weight Compression for Language Models</a></h3>
+          <p class="authors"><span class="me">Jegwang Ryu</span>, Minkyu Kim, Seungjun Shin, Hee Min Choi, Dokwan Oh, Jaeho Lee</p>
+          <p class="venue"><strong>ICML</strong> 2026 Workshop on Resource-Adaptive Foundation Model Inference</p>
+          <div class="paper-links">
+            <a class="chip small" href="https://arxiv.org/abs/2510.11234">arXiv</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="paper">
+        <img class="thumb" src="images/sparc.png" alt="" onerror="this.remove()">
+        <div class="paper-body">
+          <h3><a href="https://arxiv.org/abs/2606.16253">Learned Image Compression for Vision-Language-Action Models</a></h3>
+          <p class="authors">Hyeonjun Kim, <span class="me">Jegwang Ryu</span>, Sangbeom Ha, Junhyeok Lee, Jun-Hyuk Kim, Hyemin Ahn, Jaeho Lee</p>
+          <p class="venue"><strong>Preprint</strong> 2026</p>
+          <div class="paper-links">
+            <a class="chip small" href="https://arxiv.org/abs/2606.16253">arXiv</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="paper">
+        <img class="thumb" src="images/declimsup.png" alt="" onerror="this.remove()">
+        <div class="paper-body">
+          <h3><a href="https://aclanthology.org/2024.emnlp-main.693/">Decoding with Limited Teacher Supervision Requires Understanding When to Trust the Teacher</a></h3>
+          <p class="authors">Hyunjong Ok, <span class="me">Jegwang Ryu</span>, Jaeho Lee</p>
+          <p class="venue"><strong>EMNLP</strong> 2024</p>
+          <div class="paper-links">
+            <a class="chip small" href="https://aclanthology.org/2024.emnlp-main.693/">Paper</a>
+            <a class="chip small" href="https://github.com/HJ-Ok/DecLimSup">Code</a>
+            <a class="chip small" href="https://arxiv.org/abs/2406.18002">arXiv</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="paper">
+        <img class="thumb" src="images/maskedkd.png" alt="" onerror="this.remove()">
+        <div class="paper-body">
+          <h3><a href="https://maskedkd.github.io/">The Role of Masking for Efficient Supervised Knowledge Distillation of Vision Transformers</a></h3>
+          <p class="authors">Seungwoo Son, <span class="me">Jegwang Ryu</span>, Namhoon Lee, Jaeho Lee</p>
+          <p class="venue"><strong>ECCV</strong> 2024</p>
+          <div class="paper-links">
+            <a class="chip small" href="https://maskedkd.github.io/">Website</a>
+            <a class="chip small" href="https://arxiv.org/abs/2302.10494">arXiv</a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <section id="education">
+    <h2 class="section-title">Education</h2>
+    <div>
+      <div class="entry">
+        <div class="entry-main">
+          <h3>M.S. in Electrical Engineering</h3>
+          <p>Pohang University of Science and Technology (POSTECH)</p>
+          <p class="detail">Efficient Learning Lab (EffL), advised by Prof. Jaeho Lee</p>
+        </div>
+        <p class="date">Sep 2024 – Present</p>
+      </div>
+      <div class="entry">
+        <div class="entry-main">
+          <h3>B.S. in Electrical Engineering</h3>
+          <p>Pohang University of Science and Technology (POSTECH)</p>
+          <p class="detail">Magna cum laude. National Science and Technology Scholarship, 2020–2024</p>
+        </div>
+        <p class="date">Feb 2018 – Aug 2024</p>
+      </div>
+    </div>
+  </section>
+
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>© 2026 Jegwang Ryu</span>
+    <span>Last updated October 2026</span>
+  </div>
+</footer>
+
+</body>
+</html>
