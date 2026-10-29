@@ -64,13 +64,13 @@
   .site-header .links { margin-top: 14px; }
   .photo { flex: 0 0 auto; width: 128px; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 16px; background: var(--surface); }
 
-  main.wrap { display: flex; flex-direction: column; gap: 60px; }
+  main.wrap { display: flex; flex-direction: column; gap: 44px; }
   section { scroll-margin-top: 24px; }
-  h2.section-title { margin: 0 0 20px; font-size: 24px; font-weight: 600; letter-spacing: -0.01em; line-height: 1.25; }
+  h2.section-title { margin: 0 0 14px; font-size: 24px; font-weight: 600; letter-spacing: -0.01em; line-height: 1.25; }
 
   /* Intro */
-  .intro { padding-top: 48px; display: flex; flex-wrap: wrap; gap: 40px 56px; align-items: flex-start; }
-  .intro-text { flex: 999 1 440px; min-width: 0; display: flex; flex-direction: column; gap: 18px; }
+  .intro { padding-top: 32px; display: flex; flex-wrap: wrap; gap: 40px 56px; align-items: flex-start; }
+  .intro-text { flex: 999 1 440px; min-width: 0; display: flex; flex-direction: column; gap: 14px; }
   .intro-text p.lead { margin: 0; font-size: 16.5px; line-height: 1.65; max-width: 62ch; }
 
   .links { display: flex; flex-wrap: wrap; gap: 10px; }
@@ -83,13 +83,12 @@
   .chip svg { width: 12px; height: 12px; }
   .chip:hover { background: var(--surface); }
 
-  .interests { padding: 20px 22px; background: var(--surface); border-radius: 12px; width: fit-content; max-width: 100%; display: flex; flex-direction: column; gap: 10px; }
-  .interests h3 { margin: 0; font-size: 14px; font-weight: 600; }
-  .interests p { margin: 0; font-size: 14px; }
-  .interests strong { font-weight: 600; }
+  .interests h3 { margin: 0 0 4px; font-size: 16.5px; font-weight: 600; }
+  .interests ul { margin: 0; padding-left: 20px; font-size: 16.5px; line-height: 1.65; }
+  .interests strong { font-weight: 500; }
 
   /* Publications */
-  .papers { display: flex; flex-direction: column; gap: 28px; }
+  .papers { display: flex; flex-direction: column; gap: 20px; }
   .paper { display: flex; flex-wrap: wrap; gap: 20px 28px; align-items: flex-start; }
   .paper .thumb { flex: 0 0 176px; width: 176px; aspect-ratio: 16 / 10; object-fit: cover; border-radius: 10px; background: var(--surface); }
   .paper-body { flex: 1 1 340px; min-width: 0; display: flex; flex-direction: column; gap: 6px; }
@@ -112,7 +111,7 @@
   /* Education */
   .entry {
     display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 24px;
-    padding: 16px 0; border-top: 1px solid var(--line);
+    padding: 12px 0; border-top: 1px solid var(--line);
   }
   .entry-main { flex: 1 1 420px; min-width: 0; }
   .entry h3 { margin: 0; font-size: 16px; font-weight: 600; line-height: 1.4; }
@@ -121,7 +120,7 @@
   .entry .date { margin: 0; font-size: 14px; color: var(--muted); white-space: nowrap; }
 
   /* Footer */
-  .site-footer { margin-top: 64px; border-top: 1px solid var(--line); }
+  .site-footer { margin-top: 48px; border-top: 1px solid var(--line); }
   .site-footer .wrap {
     padding-top: 24px; padding-bottom: 32px;
     display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px;
@@ -129,7 +128,7 @@
   }
 
   @media (max-width: 600px) {
-    .intro { padding-top: 32px; }
+    .intro { padding-top: 24px; }
     .photo { width: 88px; }
     .paper .thumb { flex-basis: 100%; width: 100%; }
   }
@@ -168,8 +167,10 @@
 
       <div class="interests">
         <h3>Research interests</h3>
-        <p><strong>Efficient inference &amp; training:</strong> model compression, quantization, knowledge distillation</p>
-        <p><strong>Data compression:</strong> neural codecs, learned compression</p>
+        <ul>
+          <li><strong>Efficient inference &amp; training:</strong> model compression, quantization, knowledge distillation</li>
+          <li><strong>Data compression:</strong> neural codecs, learned compression</li>
+        </ul>
       </div>
     </div>
   </section>
@@ -234,7 +235,7 @@
         <div class="entry-main">
           <h3>B.S. in Electrical Engineering</h3>
           <p>Pohang University of Science and Technology (POSTECH)</p>
-          <p class="detail">Magna cum laude. National Science and Technology Scholarship, 2020–2024</p>
+          <p class="detail">Magna cum laude</p>
         </div>
         <p class="date">Feb 2018 – Aug 2024</p>
       </div>
