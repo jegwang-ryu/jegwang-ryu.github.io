@@ -75,11 +75,12 @@
 
   .links { display: flex; flex-wrap: wrap; gap: 10px; }
   .chip {
-    display: inline-flex; align-items: center; gap: 8px;
-    min-height: 44px; padding: 0 16px;
+    display: inline-flex; align-items: center; gap: 6px;
+    min-height: 34px; padding: 0 13px;
     border: 1px solid var(--chip-line); border-radius: 999px;
-    font-size: 14px; font-weight: 500; text-decoration: none;
+    font-size: 13px; font-weight: 500; text-decoration: none;
   }
+  .chip svg { width: 15px; height: 15px; }
   .chip:hover { background: var(--surface); }
 
   .interests { padding: 20px 22px; background: var(--surface); border-radius: 12px; width: fit-content; max-width: 100%; display: flex; flex-direction: column; gap: 10px; }
@@ -142,7 +143,8 @@
     <img class="photo" src="photo.jpg" alt="Jegwang Ryu" onerror="this.remove()">
     <div>
       <h1>Jegwang Ryu</h1>
-      <p class="role">M.S. Student, Electrical Engineering, POSTECH</p>
+      <p class="role">M.S. Student, POSTECH EffL</p>
+      <p class="role">jegwang.ryu@postech.ac.kr</p>
       <div class="links">
         <a class="chip" href="mailto:jegwang.ryu@postech.ac.kr">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>Email</a>
